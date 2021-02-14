@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import App from "./components/App"
+import Home from "./containers/Home"
 
 const container = document.getElementById("App")
 
-ReactDOM.render(<App />, container)
+ReactDOM.render(<Home />, container)

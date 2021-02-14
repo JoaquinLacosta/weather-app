@@ -1,3 +1,92 @@
-h1 {
-    font-size: 80px;
+@mixin conditions {
+    padding-left: 10px;
+    font-size: 32px;
+    font-weight: 600;
+}
+@mixin backgrounds($img) {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url($img);
+}
+
+body {
+    margin: 0;
+    font-family: Newsreader, sans-serif;
+}
+.Container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    @include backgrounds("https://resources.owllabs.com/hubfs/fog-3622519_1920-jpg.jpeg");
+}
+.Search__input {
+    background: transparent;
+    display: block;
+    margin-top: 15px;
+    width: 45%;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 20px;
+    border: none;
+    border-bottom: 2px solid black;
+    outline: none;
+    margin: 0 auto;
+}
+
+.Weather__container {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    margin-top: 150px;
+    width: 100%;
+    height: 20vh;
+}
+.Weather__item {
+    background-color: rgba(0, 0, 0, .3);
+    max-width: 450px;
+    min-width: 250px;
+    width: 70%;
+    margin: 0 auto;
+    min-height: 50vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &.cold {
+        color: black;
+        @include backgrounds("https://png.pngtree.com/thumb_back/fw800/background/20190222/ourmid/pngtree-winter-snowing-beautiful-minimalist-background-downnaturalwatching-snowclimatebranchartistic-conceptioncold-image_61693.jpg")
+    }
+    &.warm {
+        @include backgrounds("https://image.freepik.com/vector-gratis/ilustracion-vector-paisaje-panorama-desertico-dunas-arena-verano-soleado-dia-muy-caluroso-minimalista-naturaleza-panoramica-dibujos-animados-vacia-arena-sol-cielo-limpio_39190-321.jpg")
+    }
+    &-title {
+        padding-top: 25px;
+    }
+    &-date {
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: 20px
+    }
+    &-temp-min {
+        span {
+            @include conditions();
+        }
+    }
+    &-temp {
+        span {
+            @include conditions();
+        }
+    }
+    &-temp-max {
+        span {
+            @include conditions();
+        }
+    }
+    &-humidity {
+        span {
+            @include conditions();
+        }
+    }
 }

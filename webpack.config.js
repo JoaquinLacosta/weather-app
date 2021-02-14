@@ -6,13 +6,15 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "bundle.js"
+        filename: "bundle.js",
+        publicPath: "/"
     },
     mode: "development",
     devServer: {
         open: true,
         port: 8000,
-        historyApiFallback: true
+        historyApiFallback: true,
+        publicPath: "/"
     },
     module: {
         rules: [
@@ -47,7 +49,7 @@ module.exports = {
             filename: "index.html"
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].css"
+            filename: "assets/styles/[name].css",
         })
     ]
 }
