@@ -10,12 +10,16 @@ const App = () => {
             fetch(`http://api.openweathermap.org/data/2.5/weather?q=${country}&units=metric&appid=68d4327870a955115dc7f2ab8801f0ce`)
             .then(res => res.json())
             .then(data => {
-                setSearch(data)
-                setCountry("")
+                if(data.cod === 200) {
+                    setSearch(data)
+                    setCountry("")
+                }
+                else {
+                    alert("La ciudad introducida no existe")
+                }
             })
         }
     }
-    console.log(search)
     
     const construirFecha = (d) => {
         const days = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"]
