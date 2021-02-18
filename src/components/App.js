@@ -4,6 +4,7 @@ import "../styles/App.scss"
 const App = () => {
     const [country, setCountry] = useState("")
     const [search, setSearch] = useState()
+    const [title, setTitle] = useState("Busca una ciudad")
 
     const handleSearch = (e) => {
         if(e.key === "Enter") {
@@ -15,7 +16,8 @@ const App = () => {
                     setCountry("")
                 }
                 else {
-                    alert("La ciudad introducida no existe")
+                    setTitle("La ciudad introducida no es valida")
+                    setSearch()
                 }
             })
         }
@@ -45,7 +47,7 @@ const App = () => {
             onKeyPress={handleSearch}
             />
             {
-                (typeof search === "undefined") ? <div className="Weather__container"><h2>Busca una ciudad</h2></div>
+                (typeof search === "undefined") ? <div className="Weather__container"><h2>{title}</h2></div>
             
         :   <div className="Weather__container">
                 <div className={search.main.temp > 24 ? "Weather__item warm" : "Weather__item cold"}>
